@@ -1,0 +1,18 @@
+<mat-form-field class="example-chip-list">
+  <mat-select placeholder="Name" name="name" [(ngModel)]="name"  multiple (blur)="onTouched()"
+   (ngModelChange)="onChanged($event)" #yearSelect="ngModel">
+    <mat-select-trigger>
+      {{name ? name[0] : ''}}
+      <span *ngIf="name?.length > 1" class="example-additional-selection">
+        (+{{name.length - 1}} {{name?.length === 2 ? 'other' : 'others'}})
+      </span>
+    </mat-select-trigger>
+    <br>
+    <input type="text" matInput placeholder="Search....." #query (keyup)="_filter(query.value)">
+    <br>
+    <hr>
+    <div *ngFor="let name of names">
+      <mat-option  #allSelected [ngClass]="{hidden:!_filter(query.value,name)}" [value]="name" >{{name}}</mat-option>
+    </div>
+  </mat-select>
+</mat-form-field>

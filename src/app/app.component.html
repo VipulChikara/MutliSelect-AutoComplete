@@ -1,0 +1,12 @@
+<div>
+  <img src="http://www.smartjoules.co.in/wp-content/uploads/2016/05/loading.gif" height="100px" alt="" srcset="">
+</div>
+<mat-card class="card">
+<br>
+<form (ngSubmit)="onSubmit()" [formGroup]="form" >
+ <app-autocomplete formControlName="name"></app-autocomplete>
+  <mat-card-actions align="center">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </mat-card-actions>
+</form>
+</mat-card>
